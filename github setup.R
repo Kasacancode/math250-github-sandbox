@@ -5,4 +5,4 @@ use_github()
 
 # I'm gonna start a new project first.
 
-# Let's make a change
+# Let's make a change.
