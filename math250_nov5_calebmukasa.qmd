@@ -1,0 +1,63 @@
+---
+title: "November 5th Assignment"
+author: "Caleb Mukasa"
+format: html
+---
+
+## Problem 1
+
+Hypotheses: 
+H0: μ = 110 
+H1: μ ≠ 110
+
+```{r}
+library(ISLR2)
+mean(Carseats$Price)
+sd(Carseats$Price)
+n <- length(Carseats$Price)
+t.test(Carseats$Price, mu=110) # Statistical Test
+```
+
+```{r}
+plot.new() 
+hist(Carseats$Price,
+     breaks = 20,
+     main = "Carseat Prices",
+     xlab = "Price")
+abline(v = 110, col = "red", lwd = 2) # Having error plot.new has not been called yet for some reason however still renders
+```
+The sample mean price is $115.80. If the true mean was 110, we would expect the sample mean to be somewhere near 110, maybe a bit above or below because of natural variation. But we would not expect it to land almost six dollars higher.
+
+p-value is extremely small (≈ 1.4 × 10^-6). That means this difference is much too big to be explained by random chance if real average was actually 110.
+
+The 95% confidence interval for the true mean is roughly [113.47, 118.12]. Notice 110 isn't inside this interval. That means all statistically plausible values for the population mean are above 110. So since the difference from 110 is statistically meaningful, The data does not support the company’s claim.
+
+## Problem 2
+
+```{r}
+# ME = Margin of Error CI = Confidence Interval
+
+x  <- Carseats$CompPrice
+n  <- length(x)
+xbar <- mean(x)
+s  <- sd(x)
+tcrit <- qt(0.95, df = n - 1)         # 90% CI → upper tail 0.05
+ME <- tcrit * s / sqrt(n)
+c(xbar - ME, xbar + ME)
+```
+
+mean ≈ 124.97, ME ≈ 1.24, CI (123.73, 126.21)
+
+## Problem 3
+
+```{r}
+library(palmerpenguins)
+
+t <- table(penguins$species, penguins$island)
+addmargins(t)
+```
+Adelie appear across all three islands. Chinstrap are only on Dream. Gentoo are only on Biscoe. The margins show there are 152 Adelie, 68 Chinstrap, and 124 Gentoo in this sample.
+
+## Problem 4
+
+All files have been pushed to GitHub here:
