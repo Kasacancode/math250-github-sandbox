@@ -21,12 +21,12 @@ t.test(Carseats$Price, mu=110) # Statistical Test
 ```
 
 ```{r}
-plot.new() 
+plot.new() # Plotted a histogram to illustrate
 hist(Carseats$Price,
      breaks = 20,
      main = "Carseat Prices",
      xlab = "Price")
-abline(v = 110, col = "red", lwd = 2) # Having error plot.new has not been called yet for some reason however still renders
+abline(v = 110, col = "red", lwd = 2) # Having error plot.new has not been called yet for some reason however renders fine
 ```
 The sample mean price is $115.80. If the true mean was 110, we would expect the sample mean to be somewhere near 110, maybe a bit above or below because of natural variation. But we would not expect it to land almost six dollars higher.
 
@@ -42,10 +42,10 @@ The 95% confidence interval for the true mean is roughly [113.47, 118.12]. Notic
 x  <- Carseats$CompPrice
 n  <- length(x)
 xbar <- mean(x)
-s  <- sd(x)
+s  <- sd(x)                           
 tcrit <- qt(0.95, df = n - 1)         # 90% CI → upper tail 0.05
-ME <- tcrit * s / sqrt(n)
-c(xbar - ME, xbar + ME)
+ME <- tcrit * s / sqrt(n)          
+c(xbar - ME, xbar + ME)            # CI Endpoints
 ```
 
 mean ≈ 124.97, ME ≈ 1.24, CI (123.73, 126.21)
