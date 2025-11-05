@@ -53,9 +53,6 @@ mean ≈ 124.97, ME ≈ 1.24, CI (123.73, 126.21)
 ## Problem 3
 
 ```{r}
-library(palmerpenguins) 
-# Errors using penguins so opted for palmerpenguins they are analogous.
-
 t <- table(penguins$species, penguins$island)
 addmargins(t)
 ```
