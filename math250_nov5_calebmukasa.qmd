@@ -1,7 +1,9 @@
 ---
 title: "November 5th Assignment"
 author: "Caleb Mukasa"
-format: html
+format:
+  html:
+    embed-resources: true
 ---
 
 ## Problem 1
@@ -51,7 +53,8 @@ mean ≈ 124.97, ME ≈ 1.24, CI (123.73, 126.21)
 ## Problem 3
 
 ```{r}
-library(palmerpenguins)
+library(palmerpenguins) 
+# Errors using penguins so opted for palmerpenguins they are analogous.
 
 t <- table(penguins$species, penguins$island)
 addmargins(t)
@@ -61,3 +64,5 @@ Adelie appear across all three islands. Chinstrap are only on Dream. Gentoo are 
 ## Problem 4
 
 All files have been pushed to GitHub here:
+
+https://github.com/Kasacancode/math250-github-sandbox
